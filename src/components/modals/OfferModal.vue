@@ -1,0 +1,93 @@
+<template>
+  <div class="modal-mask" v-if="isVisible">
+    <div class="modal-wrapper">
+      <div class="modal-container">
+        <button class="close-button" @click="closeModal">X</button>
+        <div class="modal-header">
+          <div class="progress-number">3/4</div>
+          <div class="progress-bar">
+            <div
+              class="progress-step"
+              v-for="index in 4"
+              :key="index"
+              :class="{ filled: index <= 3 }"
+            ></div>
+          </div>
+          <h2>Hindame Sind kõrgelt!</h2>
+        </div>
+        <div class="modal-body">
+          <h2>
+            Soovime, et ka edaspidi oleks Sul võimalik lugeda pealkirjast kaugemale, jagada
+            ligipääsu veel kahe lahedaga ning saada osa podcastidest ja ülekannetest, mis teistele
+            ligipääsmatud. Toeta meie ajakirjanikke ning jätka tellimist!
+          </h2>
+          <div class="poster">
+            <div class="overlay">
+              Ainult nüüd<br />
+              <span class="offer-percent">-{{ calcPercentage }}%</span>
+            </div>
+            <div class="content">
+              <div class="title">
+                <div class="circle"></div>
+                <img src="../../assets/icons/king.png" alt="King Icon" />
+                <span class="bold">Delfi</span> <span> Kogupakett</span>
+              </div>
+              <div class="price">
+                <span class="original-price">{{ normalPrice }} </span>
+                <span class="discount-price"> {{ offerPrice }} €</span>
+              </div>
+              <div class="details">
+                <span>{{ termName }} järgmised </span>
+                <span class="bold"> {{ offerPeriod }}</span>
+                <span> kuud vaid </span>
+                <span class="bold"> {{ offerPrice }} € kuus,</span>
+                <br />
+                tavahind <span> {{ normalPrice }} €</span> kuus.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="continue-button" @click="continueSubscription">Soovin</button>
+          <button class="cancel-button" @click="cancelSubscription">Edasi tühistama</button>
+          <div class="help-container">
+            <p class="footer-text" @click="redirectSupport">
+              Vajad abi? <b>Meie klienditugi aitab </b><span class="blue">></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
+
+const isVisible = computed(() => store.state.isVisible)
+const termName = computed(() => store.state.userData?.userInfo?.termName || 'Delfi kogupakett')
+const offerPrice = computed(() => store.state.userData?.offer?.price || '5,99')
+const offerPeriod = computed(() => store.state.userData?.offer?.billingPeriod || '6')
+const normalPrice = computed(() => store.state.userData?.offer?.normalPrice || '10,99')
+const calcPercentage = Math.floor((offerPrice.value / normalPrice.value) * 100)
+
+const continueSubscription = () => {
+  store.commit('setActiveStep', 'win')
+}
+
+const cancelSubscription = () => {
+  store.commit('setActiveStep', 'loss')
+}
+
+const closeModal = () => {
+  store.commit('setIsVisible', false)
+  store.commit('resetState')
+}
+
+const redirectSupport = () => {
+  window.location.href = 'https://delfimeedia.ee/kontakt/'
+}
+</script>

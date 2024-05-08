@@ -1,0 +1,334 @@
+.modal-content {
+  align-items: center;
+  text-align: center;
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.modal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-container {
+  width: calc(100vh);
+  margin: 10% 5%;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-header h2 {
+  margin-top: 8%;
+  margin-bottom: 5%;
+  font-weight: bold;
+  color: black;
+  font-size: 28px;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.modal-body textarea {
+  width: 95%;
+  height: 200px;
+  border-radius: 10px;
+  background-color: #f5f6f7;
+  border: none;
+  padding: 20px;
+  font-size: 20px;
+  resize: none;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.modal-footer {
+  margin-top: 5%;
+}
+
+.continue-button,
+.cancel-button,
+.win-loss-button {
+  width: 300px;
+  height: 60px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: 2%;
+  padding: 0;
+}
+
+.continue-button {
+  background-color: #00d26d;
+}
+
+.cancel-button {
+  background-color: #f5f6f7;
+  color: black;
+}
+
+.win-loss-button {
+  background-color: #3858f5;
+}
+
+.check-circle-container {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.poster {
+  position: relative;
+  display: inline-block;
+  border-radius: 30px;
+  background-color: #e1f8d7;
+  padding: 20px;
+  color: black;
+  text-align: center;
+  width: 95%;
+  margin-top: 10%;
+}
+
+.offer-percent {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.overlay {
+  position: absolute;
+  top: -15%;
+  left: 10%;
+  background-color: #3858f5;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+}
+
+.title img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #00d26d;
+  margin-right: -10%;
+}
+
+.price {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #708597;
+}
+
+.discount-price {
+  font-size: 40px;
+  color: #3858f5;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.help-container {
+  margin-top: 6%;
+  margin-bottom: 3%;
+}
+
+.footer-text {
+  cursor: pointer;
+  padding: 5px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.footer-text b {
+  font-weight: bold;
+  display: inline-block;
+}
+.blue {
+  color: #3858f5;
+  display: inline-block;
+  margin-left: 2%;
+}
+
+.progress-number {
+  font-weight: bold;
+  margin-bottom: 1%;
+  margin-top: 8%;
+  color: black;
+}
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  height: 10px;
+  border-radius: 5px;
+  margin-bottom: 10%;
+  width: 50%;
+  margin: auto;
+}
+
+.progress-step {
+  width: calc(100% / 4);
+  height: 100%;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.filled {
+  background-color: #3858f5;
+}
+.close-button {
+  display: flex;
+  float: right;
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  font-size: 20px;
+  color: #708597;
+  font-weight: bold;
+}
+
+.close-button-exception {
+  display: flex;
+  float: right;
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  font-size: 20px;
+  color: #708597;
+  font-weight: bold;
+  margin-bottom: -5%;
+}
+
+.start-page-heading {
+  background-color: #e9f6ff;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 10px;
+  color: black;
+  font-size: 20px;
+}
+
+.reason-list {
+  list-style-type: none;
+  padding-left: 0;
+  text-align: left;
+  font-size: 20px;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  margin-left: 5%;
+}
+
+.round-checkbox {
+  border-radius: 50% !important;
+  border: 2px solid #e4e5e5 !important;
+  margin-right: 2%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  vertical-align: middle;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.round-checkbox:checked {
+  background-color: #d6d6d6;
+}
+
+@media (max-width: 768px) {
+  .progress-number {
+    margin-top: 12%;
+  }
+  .check-circle-container {
+    margin-top: 8%;
+  }
+  .poster {
+    margin-top: 35%;
+  }
+  .overlay {
+    top: -35%;
+  }
+  .modal-body h2 {
+    font-size: 16px;
+  }
+  .modal-wrapper {
+    margin-top: 10%;
+  }
+  .reason-list {
+    font-size: 16px;
+    margin-left: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .progress-number {
+    margin-top: 5%;
+  }
+}
