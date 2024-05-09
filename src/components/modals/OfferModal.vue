@@ -28,9 +28,9 @@
             </div>
             <div class="content">
               <div class="title">
-                <div class="circle"></div>
-                <img src="../../assets/icons/king.png" alt="King Icon" />
-                <span class="bold">{{ $t('delfi') }}</span> <span> {{ $t('offerPackage') }}</span>
+                <img src="../../assets/icons/king.svg" alt="King Icon" />
+                <span class="bold">{{ $t('delfi') }}</span
+                ><span>{{ termName }}</span>
               </div>
               <div class="price">
                 <span class="original-price">{{ normalPrice }} </span>
@@ -73,7 +73,10 @@ import { redirect } from '../../utils/utils'
 const store = useStore()
 
 const isVisible = computed(() => store.state.isVisible)
-const termName = computed(() => store.state.userData?.userInfo?.termName || 'Delfi kogupakett')
+const termName = computed(() => {
+  const term = store.state.userData?.offer?.termName
+  return term ? (term.startsWith('Delfi') ? term.slice('Delfi'.length) : term) : 'kogupakett'
+})
 const offerPrice = computed(() => store.state.userData?.offer?.price || '5,99')
 const offerPeriod = computed(() => store.state.userData?.offer?.billingPeriod || '6')
 const normalPrice = computed(() => store.state.userData?.offer?.normalPrice || '10,99')

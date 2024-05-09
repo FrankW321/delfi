@@ -7,7 +7,7 @@ export const mockApiResponse = {
   },
   offer: {
     termId: 'UQ3000',
-    termName: 'Delfi Kogupakett',
+    termName: 'Delfi kogupakett',
     price: 5.99,
     normalPrice: 10.99,
     billingPeriod: 6
