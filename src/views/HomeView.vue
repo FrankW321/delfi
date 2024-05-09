@@ -13,7 +13,7 @@ import LossModal from '../components/modals/LossModal.vue'
 const store = useStore()
 const isVisible = computed(() => store.state.isVisible)
 const activeStep = computed(() => store.state.activeStep)
-const setIsVisible = (isVisible: Boolean) => {
+const setIsVisible = (isVisible: boolean) => {
   store.commit('setActiveStep', 'start')
   store.commit('setIsVisible', isVisible)
 }
@@ -31,16 +31,19 @@ onMounted(async () => {
 <template>
   <main>
     <div class="modal-wrapper">
-      <button class="win-loss-button" @click="setIsVisible(true)">Click me to start</button>
+      <button class="win-loss-button" @click="setIsVisible(true)">
+        {{ $t('startButtonText') }}
+      </button>
     </div>
     <div class="modal" v-if="isVisible">
       <div class="modal-content">
         <StartModal v-if="activeStep === 'start'" />
-        <ReasonModal v-if="activeStep === 'reason'" />
-        <InputModal v-if="activeStep === 'input'" />
-        <OfferModal v-if="activeStep === 'offer'" />
-        <WinModal v-if="activeStep === 'win'" />
-        <LossModal v-if="activeStep === 'loss'" />
+        <ReasonModal v-else-if="activeStep === 'reason'" />
+        <InputModal v-else-if="activeStep === 'input'" />
+        <OfferModal v-else-if="activeStep === 'offer'" />
+        <WinModal v-else-if="activeStep === 'win'" />
+        <LossModal v-else-if="activeStep === 'loss'" />
+        <div v-else>{{ $t('unknownStepMessage') }}</div>
       </div>
     </div>
   </main>

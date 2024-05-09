@@ -15,17 +15,13 @@ export interface Offer {
   billingPeriod: number
 }
 
-export interface State {
-  activeStep: string
-  cancellationReason: string
-  cancellationDescription: string
-  acceptedOffer: boolean
-}
-
 export interface RootState {
+  acceptedOffer: boolean
+  cancellationReasons: string[]
+  cancellationDescription: string
   isVisible: boolean
   activeStep: string
-  userData: UserInfo
+  userData: UserInfo | null
   offer: Offer
 }
 

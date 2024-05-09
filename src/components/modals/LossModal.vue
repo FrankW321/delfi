@@ -18,17 +18,19 @@
           <div class="check-circle-container">
             <img src="../../assets/icons/checkCircle.svg" alt="Circle Icon" />
           </div>
-          <p>Meil on nii kahju, et oled soovinud tellimuse tühistada.</p>
+          <p>{{ $t('lossMessage') }}</p>
           <p>
-            Sinu praegune tellimus kehtib kuni <span class="bold">{{ daysSubscribed }}</span>
+            {{ $t('subscriptionPeriodMessage') }}
+            <span class="bold">{{ daysSubscribed }}</span>
           </p>
         </div>
         <div class="modal-footer">
-          <button class="win-loss-button" @click="closeModal">Sulge</button>
+          <button class="win-loss-button" @click="closeModal">{{ $t('close') }}</button>
         </div>
         <div class="help-container">
           <p class="footer-text" @click="redirectSupport">
-            Vajad abi? <b>Meie klienditugi aitab </b><span class="blue">></span>
+            {{ $t('needHelpMessage') }} <b>{{ $t('customerSupport') }}</b
+            ><span class="blue">></span>
           </p>
         </div>
       </div>
@@ -36,7 +38,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 

@@ -13,7 +13,7 @@
               :class="{ filled: index <= 2 }"
             ></div>
           </div>
-          <h2>Miks soovid tellimust tühistada?</h2>
+          <h2>{{ $t('whyCancel') }}</h2>
         </div>
         <div class="modal-body">
           <ul class="reason-list">
@@ -25,17 +25,23 @@
                 :value="reason"
                 class="round-checkbox"
               />
-              <label :for="'reason' + index">{{ reason }}</label>
+
+              <label :for="'reason' + index">{{ $t(`reasons.${reason}`) }}</label>
             </li>
           </ul>
         </div>
         <div class="modal-footer">
-          <button class="continue-button" @click="continueSubscription">Jätkan tellimusega</button>
-          <button class="cancel-button" @click="cancelSubscription">Edasi tühistama</button>
+          <button class="continue-button" @click="continueSubscription">
+            {{ $t('continueSubscription') }}
+          </button>
+          <button class="cancel-button" @click="cancelSubscription">
+            {{ $t('cancelSubscription') }}
+          </button>
         </div>
         <div class="help-container">
           <p class="footer-text" @click="redirectSupport">
-            Vajad abi? <b>Meie klienditugi aitab </b><span class="blue">></span>
+            {{ $t('needHelpMessage') }} <b>{{ $t('customerSupport') }}</b
+            ><span class="blue">></span>
           </p>
         </div>
       </div>
@@ -51,13 +57,7 @@ const store = useStore()
 
 const isVisible = computed(() => store.state.isVisible)
 
-const reasons = [
-  'Kuutasu on kallis',
-  'Ei külasta Delfit piisavalt, et olla tellija',
-  'Tehnilised probleemid kasutamisel',
-  'Soovin reklaamivaba lugemist',
-  'Muu'
-]
+const reasons = ['cost', 'notEnoughVisits', 'technicalIssues', 'adFreeReading', 'other']
 const selectedReasons = ref([])
 
 const cancelSubscription = async () => {

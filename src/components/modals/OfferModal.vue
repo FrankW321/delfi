@@ -13,46 +13,49 @@
               :class="{ filled: index <= 3 }"
             ></div>
           </div>
-          <h2>Hindame Sind kõrgelt!</h2>
+          <h2>
+            {{ $t('weValue') }}
+          </h2>
         </div>
         <div class="modal-body">
           <h2>
-            Soovime, et ka edaspidi oleks Sul võimalik lugeda pealkirjast kaugemale, jagada
-            ligipääsu veel kahe lahedaga ning saada osa podcastidest ja ülekannetest, mis teistele
-            ligipääsmatud. Toeta meie ajakirjanikke ning jätka tellimist!
+            {{ $t('weValueMessage') }}
           </h2>
           <div class="poster">
             <div class="overlay">
-              Ainult nüüd<br />
+              {{ $t('onlyNow') }}<br />
               <span class="offer-percent">-{{ calcPercentage }}%</span>
             </div>
             <div class="content">
               <div class="title">
                 <div class="circle"></div>
                 <img src="../../assets/icons/king.png" alt="King Icon" />
-                <span class="bold">Delfi</span> <span> Kogupakett</span>
+                <span class="bold">{{ $t('delfi') }}</span> <span> {{ $t('offerPackage') }}</span>
               </div>
               <div class="price">
                 <span class="original-price">{{ normalPrice }} </span>
                 <span class="discount-price"> {{ offerPrice }} €</span>
               </div>
               <div class="details">
-                <span>{{ termName }} järgmised </span>
+                <span>{{ termName }} {{ $t('next') }} </span>
                 <span class="bold"> {{ offerPeriod }}</span>
-                <span> kuud vaid </span>
-                <span class="bold"> {{ offerPrice }} € kuus,</span>
+                <span> {{ $t('onlyInMonth') }} </span>
+                <span class="bold"> {{ offerPrice }} € {{ $t('inMonth') }},</span>
                 <br />
-                tavahind <span> {{ normalPrice }} €</span> kuus.
+                {{ $t('normalPrice') }} <span> {{ normalPrice }} €</span> {{ $t('inMonth') }}.
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button class="continue-button" @click="continueSubscription">Soovin</button>
-          <button class="cancel-button" @click="cancelSubscription">Edasi tühistama</button>
+          <button class="continue-button" @click="continueSubscription">{{ $t('wish') }}</button>
+          <button class="cancel-button" @click="cancelSubscription">
+            {{ $t('cancelSubscription') }}
+          </button>
           <div class="help-container">
             <p class="footer-text" @click="redirectSupport">
-              Vajad abi? <b>Meie klienditugi aitab </b><span class="blue">></span>
+              {{ $t('needHelpMessage') }} <b>{{ $t('customerSupport') }}</b
+              ><span class="blue">></span>
             </p>
           </div>
         </div>

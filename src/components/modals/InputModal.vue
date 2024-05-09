@@ -13,18 +13,26 @@
               :class="{ filled: index <= 3 }"
             ></div>
           </div>
-          <h2>Kirjuta meile oma probleemist, et saaksime Sind aidata voi lahendust pakkuda.</h2>
+          <h2>{{ $t('explainMessage') }}</h2>
         </div>
         <div class="modal-body">
-          <textarea v-model="cancellationInput" placeholder="Sisesta siia kommentaar"></textarea>
+          <textarea
+            v-model="cancellationDescription"
+            :placeholder="$t('enterTextPlaceHolder')"
+          ></textarea>
         </div>
         <div class="modal-footer">
-          <button class="continue-button" @click="continueSubscription">Jätkan tellimusega</button>
-          <button class="cancel-button" @click="cancelSubscription">Edasi tühistama</button>
+          <button class="continue-button" @click="continueSubscription">
+            {{ $t('continueSubscription') }}
+          </button>
+          <button class="cancel-button" @click="cancelSubscription">
+            {{ $t('cancelSubscription') }}
+          </button>
         </div>
         <div class="help-container">
           <p class="footer-text" @click="redirectSupport">
-            Vajad abi? <b>Meie klienditugi aitab </b><span class="blue">></span>
+            {{ $t('needHelpMessage') }} <b>{{ $t('customerSupport') }}</b
+            ><span class="blue">></span>
           </p>
         </div>
       </div>
@@ -39,11 +47,11 @@ import { useStore } from 'vuex'
 const store = useStore()
 
 const isVisible = computed(() => store.state.isVisible)
-const cancellationInput = ref('')
+const cancellationDescription = ref('')
 
 const cancelSubscription = async () => {
   try {
-    await store.commit('setCancellationInput', cancellationInput.value)
+    await store.commit('setCancellationDescription', cancellationDescription.value)
     store.commit('setActiveStep', 'offer')
   } catch (error) {
     console.error('Error canceling subscription:', error)

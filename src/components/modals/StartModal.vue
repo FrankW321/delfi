@@ -13,37 +13,35 @@
               :class="{ filled: index <= 1 }"
             ></div>
           </div>
-          <h2 v-if="daysSubscribed > 0">Kas oled kindel, et soovid tellimust lõpetada?</h2>
+          <h2 v-if="daysSubscribed > 0">{{ $t('confirmCancellation') }}</h2>
         </div>
         <div class="modal-body">
           <h2 class="start-page-heading" v-if="daysSubscribed > 0">
-            Oled meiega olnud juba <b class="bold-blue">{{ daysSubscribed }}</b> päeva, ärme lahe
-            veel lahku
+            {{ $t('subscriptionDays', { days: daysSubscribed }) }}
           </h2>
-          <h1 class="" v-else>Tere tulemast Delfisse!</h1>
+          <h1 class="" v-else>{{ $t('welcomeMessage') }}</h1>
           <h2 class="start-page-heading" v-if="hasSharedAccounts">
-            Sul on jagatud lugemisõiguseid, arvesta ka nendega
+            {{ $t('sharedAccountsMessage') }}
           </h2>
           <h2 class="start-page-heading">
-            Ära jää ilma maailma tippsündmustest, mis mõjutavad kogu maailma. Käesolev aasta toob
-            teiste seas USA presidendivalimised, Olümpiamängud ning ühe eriti ägeda salaprojekti,
-            mida tasub oodata.
+            {{ $t('upcomingEventsMessage') }}
           </h2>
         </div>
         <div class="modal-footer">
           <button class="continue-button" @click="continueSubscription" v-if="hasSharedAccounts">
-            Jätkan tellimusega
+            {{ $t('continueSubscription') }}
           </button>
 
           <button v-if="daysSubscribed" class="cancel-button" @click="cancelSubscription">
-            Edasi tühistama
+            {{ $t('cancelSubscription') }}
           </button>
           <button v-if="!daysSubscribed" class="continue-button" @click="startSubscription">
-            Telli delfi
+            {{ $t('startSubscription') }}
           </button>
           <div class="help-container">
             <p class="footer-text" @click="redirectSupport">
-              Vajad abi? <b>Meie klienditugi aitab </b><span class="blue">></span>
+              {{ $t('needHelpMessage') }} <b>{{ $t('customerSupport') }}</b
+              ><span class="blue">></span>
             </p>
           </div>
         </div>

@@ -7,17 +7,20 @@
           <div class="check-circle-container">
             <img src="../../assets/icons/checkCircle.svg" alt="Circle Icon" />
           </div>
-          <h2>Eripakkumine aktiveeritud!</h2>
+          <h2>{{ $t('offerActive') }}</h2>
         </div>
         <div class="modal-body">
-          <p>Aitäh, et oled uks 150 000-st Delfi tasulise sisu lugejast.</p>
+          <p>
+            {{ $t('thankYouMessage') }}
+          </p>
         </div>
         <div class="modal-footer">
-          <button class="win-loss-button" @click="closeModal">Lugema</button>
+          <button class="win-loss-button" @click="closeModal">{{ $t('startReading') }}</button>
         </div>
         <div class="help-container">
           <p class="footer-text" @click="redirectSupport">
-            Vajad abi? <b>Meie klienditugi aitab </b><span class="blue">></span>
+            {{ $t('needHelpMessage') }} <b>{{ $t('customerSupport') }}</b
+            ><span class="blue">></span>
           </p>
         </div>
       </div>
@@ -25,7 +28,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 

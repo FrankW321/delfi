@@ -15,6 +15,7 @@
   justify-content: center;
   align-items: center;
   transition: opacity 0.3s ease;
+  overflow-y: auto;
 }
 
 .modal-wrapper {
@@ -92,6 +93,7 @@
   text-transform: uppercase;
   margin-right: 2%;
   padding: 0;
+  margin-bottom: 2%;
 }
 
 .continue-button {
@@ -223,7 +225,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f0f0f0;
   height: 10px;
   border-radius: 5px;
   margin-bottom: 10%;
@@ -251,6 +252,7 @@
   font-size: 20px;
   color: #708597;
   font-weight: bold;
+  background-color: white;
 }
 
 .close-button-exception {
@@ -263,6 +265,7 @@
   color: #708597;
   font-weight: bold;
   margin-bottom: -5%;
+  background-color: white;
 }
 
 .start-page-heading {
@@ -311,7 +314,7 @@
     margin-top: 8%;
   }
   .poster {
-    margin-top: 35%;
+    margin-top: 25%;
   }
   .overlay {
     top: -35%;
@@ -327,6 +330,18 @@
     margin-left: 0;
   }
 }
+
+@media (max-width: 850px) {
+  .overlay {
+    top: -35%;
+  }
+}
+@media (max-width: 400px) {
+  .poster {
+    margin-top: 35%;
+  }
+}
+
 @media (min-width: 1200px) {
   .progress-number {
     margin-top: 5%;
