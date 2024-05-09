@@ -41,6 +41,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useStore } from 'vuex'
+import { AppConfig } from '../../config/config'
+import { redirect } from '../../utils/utils'
 
 const store = useStore()
 
@@ -73,7 +75,7 @@ const closeModal = () => {
 }
 
 const redirectSupport = () => {
-  window.location.href = 'https://delfimeedia.ee/kontakt/'
+  redirect(AppConfig.supportUrl)
 }
 
 const getCancelDetails = () => {
